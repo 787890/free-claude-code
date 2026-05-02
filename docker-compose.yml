@@ -1,0 +1,13 @@
+services:
+  free-claude-code:
+    build: .
+    ports:
+      - "8082:8082"
+    environment:
+      - NVIDIA_NIM_API_KEY=${NVIDIA_NIM_API_KEY}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - MODEL=${MODEL:-nvidia_nim/z-ai/glm4.7}
+      - ANTHROPIC_AUTH_TOKEN=${ANTHROPIC_AUTH_TOKEN:-freecc}
+    volumes:
+      - ./agent_workspace:/app/agent_workspace
+    restart: unless-stopped
