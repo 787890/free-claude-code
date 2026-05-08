@@ -47,6 +47,7 @@ PROVIDER_SMOKE_DEFAULT_MODELS: dict[str, str] = {
     "mistral": "mistral/devstral-small-latest",
     "mistral_codestral": "mistral_codestral/codestral-latest",
     "deepseek": "deepseek/deepseek-v4-pro",
+    "xiaomi_mimo": "xiaomi_mimo/mimo-v2.5-pro",
     "lmstudio": "lmstudio/local-model",
     "llamacpp": "llamacpp/local-model",
     "ollama": "ollama/llama3.1",
@@ -237,6 +238,8 @@ class SmokeConfig:
             return bool(self.settings.deepseek_api_key.strip())
         if provider == "kimi":
             return bool(self.settings.kimi_api_key.strip())
+        if provider == "xiaomi_mimo":
+            return bool(self.settings.mimo_api_key.strip())
         if provider == "lmstudio":
             return bool(self.settings.lm_studio_base_url.strip())
         if provider == "llamacpp":

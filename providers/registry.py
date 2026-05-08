@@ -134,6 +134,10 @@ def _create_cerebras(config: ProviderConfig, _settings: Settings) -> BaseProvide
     from providers.cerebras import CerebrasProvider
 
     return CerebrasProvider(config)
+def _create_xiaomi_mimo(config: ProviderConfig, _settings: Settings) -> BaseProvider:
+    from providers.xiaomi_mimo import XiaomiMiMoProvider
+
+    return XiaomiMiMoProvider(config)
 
 
 PROVIDER_FACTORIES: dict[str, ProviderFactory] = {
@@ -151,6 +155,7 @@ PROVIDER_FACTORIES: dict[str, ProviderFactory] = {
     "groq": _create_groq,
     "fireworks": _create_fireworks,
     "zai": _create_zai,
+    "xiaomi_mimo": _create_xiaomi_mimo,
     "lmstudio": _create_lmstudio,
     "llamacpp": _create_llamacpp,
     "ollama": _create_ollama,

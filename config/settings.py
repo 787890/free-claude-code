@@ -159,6 +159,9 @@ class Settings(BaseSettings):
     # ==================== NVIDIA NIM Config ====================
     nvidia_nim_api_key: str = ""
 
+    # ==================== Xiaomi MiMo Config ====================
+    mimo_api_key: str = Field(default="", validation_alias="MIMO_API_KEY")
+
     # ==================== LM Studio Config ====================
     lm_studio_base_url: str = Field(
         default="http://localhost:1234/v1",
@@ -193,6 +196,7 @@ class Settings(BaseSettings):
     open_router_proxy: str = Field(default="", validation_alias="OPENROUTER_PROXY")
     mistral_proxy: str = Field(default="", validation_alias="MISTRAL_PROXY")
     codestral_proxy: str = Field(default="", validation_alias="CODESTRAL_PROXY")
+    xiaomi_mimo_proxy: str = Field(default="", validation_alias="XIAOMI_MIMO_PROXY")
     lmstudio_proxy: str = Field(default="", validation_alias="LMSTUDIO_PROXY")
     llamacpp_proxy: str = Field(default="", validation_alias="LLAMACPP_PROXY")
     kimi_proxy: str = Field(default="", validation_alias="KIMI_PROXY")

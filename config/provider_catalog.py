@@ -21,6 +21,7 @@ DEEPSEEK_ANTHROPIC_DEFAULT_BASE = "https://api.deepseek.com/anthropic"
 # Historical export name: DeepSeek upstream is the native Anthropic path above.
 DEEPSEEK_DEFAULT_BASE = DEEPSEEK_ANTHROPIC_DEFAULT_BASE
 FIREWORKS_DEFAULT_BASE = "https://api.fireworks.ai/inference/v1"
+XIAOMI_MIMO_DEFAULT_BASE = "https://token-plan-cn.xiaomimimo.com/anthropic/v1"
 OPENROUTER_DEFAULT_BASE = "https://openrouter.ai/api/v1"
 MISTRAL_DEFAULT_BASE = "https://api.mistral.ai/v1"
 # Codestral IDE/personal endpoint (distinct from La Plateforme ``api.mistral.ai`` keys).
@@ -212,6 +213,16 @@ PROVIDER_CATALOG: dict[str, ProviderDescriptor] = {
             "native_anthropic",
             "rate_limit",
         ),
+    ),
+    "xiaomi_mimo": ProviderDescriptor(
+        provider_id="xiaomi_mimo",
+        transport_type="anthropic_messages",
+        credential_env="MIMO_API_KEY",
+        credential_url="https://platform.xiaomimimo.com",
+        credential_attr="mimo_api_key",
+        default_base_url=XIAOMI_MIMO_DEFAULT_BASE,
+        proxy_attr="xiaomi_mimo_proxy",
+        capabilities=("chat", "streaming", "tools", "thinking", "native_anthropic"),
     ),
     "lmstudio": ProviderDescriptor(
         provider_id="lmstudio",

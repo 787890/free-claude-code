@@ -22,6 +22,7 @@ from providers.nvidia_nim import NvidiaNimProvider
 from providers.ollama import OllamaProvider
 from providers.open_router import OpenRouterProvider
 from providers.opencode import OpenCodeProvider
+from providers.xiaomi_mimo import XiaomiMiMoProvider
 from providers.registry import (
     PROVIDER_DESCRIPTORS,
     ProviderRegistry,
@@ -47,8 +48,10 @@ def _make_settings(**overrides):
     mock.lm_studio_base_url = "http://localhost:1234/v1"
     mock.llamacpp_base_url = "http://localhost:8080/v1"
     mock.ollama_base_url = "http://localhost:11434"
+    mock.mimo_api_key = "test_mimo_key"
     mock.nvidia_nim_proxy = ""
     mock.open_router_proxy = ""
+    mock.xiaomi_mimo_proxy = ""
     mock.lmstudio_proxy = ""
     mock.llamacpp_proxy = ""
     mock.mistral_proxy = ""
@@ -178,6 +181,7 @@ def test_create_provider_instantiates_each_builtin():
         "deepseek": DeepSeekProvider,
         "kimi": KimiProvider,
         "fireworks": FireworksProvider,
+        "xiaomi_mimo": XiaomiMiMoProvider,
         "lmstudio": LMStudioProvider,
         "llamacpp": LlamaCppProvider,
         "ollama": OllamaProvider,
